@@ -1,0 +1,45 @@
+*,
+  ::before,
+  ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #234b69;
+}
+
+h1 {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.wrapper {
+  outline: 1px solid gold;
+  position: relative;
+  margin: 50px auto;
+  max-width: 440px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.empty {
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+.drag {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  z-index: 1;
+}
+
+.active {
+  background-color: green;
+}
