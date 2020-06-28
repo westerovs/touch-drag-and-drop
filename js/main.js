@@ -5,41 +5,40 @@ const drag = document.querySelector('.drag');
 drag.addEventListener('touchmove', touchMove);
 drag.addEventListener('touchend', touchEnd);
 
-let itemDrop;
+let itemAppend;
 // ------------------------ touchMove
 function touchMove(event) {
     event.preventDefault();
 
     let touch = event.targetTouches[0];
-    drag.style.top = `${touch.pageY - (drag.offsetWidth / 2) - (wrapper.offsetTop)}px`;
-    drag.style.left = `${touch.pageX - (drag.offsetHeight / 2) - (wrapper.offsetLeft)}px`;
+    drag.style.top = `${touch.pageY - (wrapper.offsetTop) - (drag.offsetWidth / 2)}px`;
+    drag.style.left = `${touch.pageX - (wrapper.offsetLeft) - (drag.offsetHeight / 2)}px`;
 
-    empty.map((item, index) => {
+    empty.map(item => {
         if (
             drag.getBoundingClientRect().top + drag.offsetWidth / 2 < item.getBoundingClientRect().bottom &&
-            drag.getBoundingClientRect().left + drag.offsetWidth / 2 < item.getBoundingClientRect().right &&
+            drag.getBoundingClientRect().right - drag.offsetWidth / 2 > item.getBoundingClientRect().left &&
             drag.getBoundingClientRect().bottom - drag.offsetWidth / 2 > item.getBoundingClientRect().top &&
-            drag.getBoundingClientRect().right - drag.offsetWidth / 2 > item.getBoundingClientRect().left
+            drag.getBoundingClientRect().left + drag.offsetWidth / 2 < item.getBoundingClientRect().right
         ) {
             item.classList.add('active');
-            console.log(item.classList.contains('active'));
-            itemDrop = item;
+            itemAppend = item;
         }
         else {
-            item.classList.remove('active')
+            item.classList.remove('active');
         }
     });
 }
 
 
 function touchEnd(element) {
-    if (itemDrop.classList.contains('active')) {
-        itemDrop.append(this);
-        this.style.top = `${itemDrop.offsetTop}px`;
-        this.style.left = `${itemDrop.offsetLeft}px`;
+    if (itemAppend.classList.contains('active')) {
+        itemAppend.append(this);
+        this.style.top = `${itemAppend.offsetTop}px`;
+        this.style.left = `${itemAppend.offsetLeft}px`;
     }
     else {
-        this.style.top = `${itemDrop.offsetTop}px`;
-        this.style.left = `${itemDrop.offsetLeft}px`;
+        this.style.top = `${itemAppend.offsetTop}px`;
+        this.style.left = `${itemAppend.offsetLeft}px`;
     }
 }
