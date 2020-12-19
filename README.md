@@ -1,5 +1,5 @@
 # TOUCH-drag-and-drop vanila JS
-<p>RUN GAME</p>
+<b>Run:</b>
 https://westerovs.github.io/touch-drag-and-drop/.
 <br>
 <b>Youtube video:</b>
