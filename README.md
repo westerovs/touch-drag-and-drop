@@ -1,4 +1,6 @@
 # TOUCH-drag-and-drop vanila JS
+# Реализация на чистом JS всех основных api drag & drop
+</b>
 <b>Run:</b>
 https://westerovs.github.io/touch-drag-and-drop/.
 <br>
