@@ -31,7 +31,7 @@ function touchMove(event) {
 }
 
 
-function touchEnd(element) {
+function touchEnd() {
     if (itemAppend.classList.contains('active')) {
         itemAppend.append(this);
         this.style.top = `${itemAppend.offsetTop}px`;
