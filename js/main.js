@@ -5,7 +5,7 @@ const drag = document.querySelector('.drag');
 drag.addEventListener('touchmove', touchMove);
 drag.addEventListener('touchend', touchEnd);
 
-let itemAppend;
+let itemAppend = null;
 // ------------------------ touchMove
 function touchMove(event) {
     event.preventDefault();
